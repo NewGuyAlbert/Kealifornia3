@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Index - Dat18i</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<div th:if="${book}==-1">
+    <h1>Unfotunately there are no more available room for this period</h1>
+    <a class="btn btn-primary" th:href="@{'/room/' + ${index}}">Go back to room</a>
+</div>
+<div th:unless="${book}==-1">
+
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            <img src="https://cdn.discordapp.com/attachments/486433511335657475/618347980306776064/unknown.png" width="120" height="45"  class="d-inline-block align-top" alt="">
+            <b style="font-size:25px">LIFORNIA</b>
+        </a>
+    </nav>
+
+    <div class="container" style="width:700px; margin-left:500px">
+        <h1 style="text-align: center">Please enter your personal information</h1>
+        <br>
+
+        <form th:action="@{'/saveinfo'}"  th:object="${customerForm}" method="post">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" class="form-control" th:field="${customerForm.name}" id="name" placeholder="Enter your full name">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" th:field="${customerForm.email}" id="email"  placeholder="Enter your email">
+            <small id="emailHelp" class="form-text text-muted">We definitely will not sell your personal information for money, or actually we might.. just a bit.. Because you know it is hard to finish the month these days since my wife left me.. she also took the kids.. aahhhhh  .</small>
+        </div>
+
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" class="form-control" th:field="${customerForm.phoneNo}" id="PhoneNumber" placeholder="Enter your Phone Number">
+        </div>
+
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Agree to our <a href="/termsANDconditions"> terms and conditions </a> </label>
+        </div>
+            <br>
+
+            <a class="btn btn-dark" style="margin-left:250px;min-width:150px;min-height:35px; font-size: 30px" href="/payed">Book </a>
+        </form>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

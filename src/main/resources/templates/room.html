@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Index - Dat18i</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+        <img src="https://cdn.discordapp.com/attachments/486433511335657475/618347980306776064/unknown.png" width="120" height="45"  class="d-inline-block align-top" alt="">
+        <b style="font-size:25px">LIFORNIA</b>
+    </a>
+</nav>
+
+<!--<h1 th:text="${index}"></h1>-->
+
+<!--<tr th:each="room, iter :${rooms}">-->
+<!--<th th:text="${room.getRoomNum()} + ': ' + ${roomTypes.get(room.getRoomTypeId()).getPrice()} + ' DKK'">???</th>-->
+<!--</tr>-->
+
+<!-- <tr th:each="car, iter :${cars}">
+            <th scope="row" th:text="${car.reg}">1</th>
+            <td th:text="${car.brand}">Mark</td>
+            <td th:text="${car.color}">Otto</td>
+            <td th:text="${car.maxSpeed}">@mdo</td>
+            <td><a class="btn btn-primary" th:href="@{'/cars/delete/' + ${car.getId()}}">Delete</a>
+                <a class="btn btn-primary" th:href="@{'/cars/edit/' + ${car.getId()}}" >Edit</a>
+                </td>
+        </tr> -->
+
+<div style="width:800px;">
+    <div style="width:300px; float:left;">
+<img style="margin-left:70px;margin-top:50px"  th:text="${roomType.image}"  src="https://www.rwgenting.com/uploadedImages/Images/Mobile/Hotels/Genting_Grand/03_GG_Club_720x720.jpg?n=5541" width=""  800>
+    </div>
+</div>
+
+<div class="container" style="width:850px;margin-top:100px ;float:right">
+
+    <h1 style="text-align: center; font-size: 50px" th:text="'Kealifornia     '+ ${roomType.getName()}"></h1>
+    <br>
+    <p style="font-size: 25px; text-align: center;" th:text="${roomType.getDescription()}"> </p>
+
+    <br>
+
+    <p style="font-size: 40px; margin-left:250px" th:text="${roomType.getPrice()} + '$ Only!! '"></p>
+
+   <br>
+    <button style="margin-left:250px;min-width:200px;min-height:50px; font-size: 30px " type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalCenter" width>
+        Book Now!
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Book</h5>
+                </div>
+                <form th:action="@{'/book/' + ${index}}" method="post">
+                    <div class="modal-body">
+
+
+                        <p>Check in date</p>
+                        <div class="container mt-5 mb-5" style="width: 400px">
+                            <input type="date" id="picker" class="form-control" name="checkIn">
+                        </div>
+
+                        <p>Check out date</p>
+                        <div class="container mt-5 mb-5" style="width: 400px">
+                            <input type="date" id="picker2" class="form-control" name="checkOut">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
